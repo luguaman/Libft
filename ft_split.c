@@ -6,7 +6,7 @@
 /*   By: luguaman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 13:55:28 by luguaman          #+#    #+#             */
-/*   Updated: 2023/10/19 13:21:13 by luguaman         ###   ########.fr       */
+/*   Updated: 2023/10/30 17:35:21 by luguaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,74 +16,98 @@ static size_t	count_words(char const *s, char c)
 {
 	size_t	i;
 	size_t	count;
+	char	*str;
+	char	trim[1];
 
+	trim[0] = c;
+	str = ft_strtrim(s, trim);
 	i = 0;
 	count = 0;
-	while (i < ft_strlen(s))
+	while (i < ft_strlen(str))
 	{
-		if (((char *)s)[i] == c)
+		if (str[i] == c && str[i -1] != c && str[i +1] != '\0')
 			count++;
 		i++;
 	}
 	return (count + 1);
 }
 
-static size_t	max_size(char const *s, char c)
+static void	mem_free(size_t count, char **str)
 {
-	size_t	i;
-	size_t	size;
-	size_t	max;
+	while (count--)
+	{
+		free(str[count]);
+	}
+	free(str);
+}
 
-	i = 0;
-	max = 0;
+/*static void	copy(const char *s, char c, size_t i, size_t count, char **str)
+{
+	size_t	size;
+	char	*temp;
+
 	while (i < ft_strlen(s))
 	{
 		size = 0;
-		while (((char *)s)[i] != c && ((char *)s)[i] != '\0')
+		if (((char *)s)[i] != c)
 		{
-			size++;
-			i++;
+			while (((char *)s)[i + size] != c && ((char *)s)[i + size] != '\0')
+				size++;
+			temp = malloc(size);
+			if (!temp)
+				mem_free(count, str);
+			temp = ft_substr(s, i, size);
+			str[count] = temp;
+			count++;
+			i += size;
+			free(temp);
 		}
-		if (size > max)
-			max = size;
 		i++;
 	}
-	return (max);
-}
+	str[count] = NULL;
+}*/
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	count;
-	size_t	size;
 	size_t	i;
-	char	*ptr;
+	size_t	size;
+	size_t	count;
 	char	**str;
 
-	count = count_words(s, c);
-	size = max_size(s, c);
-	str = calloc(count + 1, size + 1);
+	str = malloc(count_words(s, c) + 1 * sizeof(char *));
+	if (!str)
+		return (NULL);
 	i = 0;
-	count = 0;
+	count = -1;
 	while (i < ft_strlen(s))
 	{
 		size = 0;
-		while ((((char *)s)[i + size] != c) && ((char *)s)[i] != '\0')
-			size++;
-		ptr = ft_substr(s, i, size);
-		str[count] = ptr;
-		free(ptr);
-		i += size;
+		if (((char *)s)[i] != c)
+		{
+			while (((char *)s)[i + size] != c && ((char *)s)[i + size] != '\0')
+				size++;
+			str[count++] = ft_substr(s, i, size);
+			i += size;
+		}
 		i++;
-		printf("%c\n", ((char *)s)[i]);
-		count++;
 	}
+	str[count] = NULL;
 	return (str);
 }
 
-/*int main()
+int main()
 {
-	char a[] = "Hola Buenas Tardes Damas Caballeros Y Gente";
+	char a[] = "      Split    this   for   me     !   ";
 	char b = ' ';
-	ft_split(a, b);
+	char	**c;
+	size_t	i;
+	c = ft_split(a, b);
+	i = 0;
+	while (i < count_words(a, b))
+	{
+		printf("%s\n", c[i]);
+		i++;
+	}
+	mem_free(count_words(a, b), c);
 	return 0;
-}*/
+}
