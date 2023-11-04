@@ -6,7 +6,7 @@
 /*   By: luguaman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 13:55:28 by luguaman          #+#    #+#             */
-/*   Updated: 2023/10/30 17:35:21 by luguaman         ###   ########.fr       */
+/*   Updated: 2023/11/04 18:20:53 by luguaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,88 +17,100 @@ static size_t	count_words(char const *s, char c)
 	size_t	i;
 	size_t	count;
 	char	*str;
-	char	trim[1];
 
-	trim[0] = c;
-	str = ft_strtrim(s, trim);
+	str = (char *)s;
 	i = 0;
 	count = 0;
 	while (i < ft_strlen(str))
 	{
-		if (str[i] == c && str[i -1] != c && str[i +1] != '\0')
+		if (str[i] != c && i < ft_strlen(str))
+		{
 			count++;
+			while (str[i] != c && i < ft_strlen(str))
+				i++;
+		}
 		i++;
 	}
-	return (count + 1);
+	return (count);
 }
 
-static void	mem_free(size_t count, char **str)
+static void	*mem_free(size_t count, char **str)
 {
 	while (count--)
 	{
 		free(str[count]);
 	}
 	free(str);
+	return (NULL);
 }
 
-/*static void	copy(const char *s, char c, size_t i, size_t count, char **str)
+static char	*str_cpy(char *s, char *ptr, size_t i, size_t size)
 {
-	size_t	size;
-	char	*temp;
+	size_t	n;
 
-	while (i < ft_strlen(s))
+	n = 0;
+	while (n < size && s[i] != '\0')
+	{
+		ptr[n] = s[i];
+		n++;
+		i++;
+	}
+	return (ptr);
+}
+
+static char	**split_words(char **str, size_t i, char *s, char c)
+{
+	char	*ptr;
+	size_t	size;
+	size_t	count;
+
+	count = 0;
+	while (count < count_words(s, c))
 	{
 		size = 0;
-		if (((char *)s)[i] != c)
+		if (s[i] != c && s[i] != '\0')
 		{
-			while (((char *)s)[i + size] != c && ((char *)s)[i + size] != '\0')
+			while (s[i + size] != c && s[i + size] != '\0')
 				size++;
-			temp = malloc(size);
-			if (!temp)
-				mem_free(count, str);
-			temp = ft_substr(s, i, size);
-			str[count] = temp;
+			ptr = calloc(1, size + 1);
+			if (ptr == NULL)
+				return (mem_free(count, str));
+			str[count] = str_cpy(s, ptr, i, size);
 			count++;
 			i += size;
-			free(temp);
 		}
 		i++;
 	}
-	str[count] = NULL;
-}*/
+	str[count] = 0;
+	free(ptr);
+	return (str);
+}
 
 char	**ft_split(char const *s, char c)
 {
 	size_t	i;
-	size_t	size;
-	size_t	count;
 	char	**str;
 
-	str = malloc(count_words(s, c) + 1 * sizeof(char *));
-	if (!str)
-		return (NULL);
+	if (s == '\0')
+		return ((char **)ft_strdup(""));
 	i = 0;
-	count = -1;
-	while (i < ft_strlen(s))
+	str = malloc((count_words(s, c) + 1) * sizeof(char *));
+	if (str)
 	{
-		size = 0;
-		if (((char *)s)[i] != c)
+		if (count_words(s, c) == 0)
 		{
-			while (((char *)s)[i + size] != c && ((char *)s)[i + size] != '\0')
-				size++;
-			str[count++] = ft_substr(s, i, size);
-			i += size;
+			str[0] = 0;
+			return (str);
 		}
-		i++;
+		return (split_words(str, i, (char *)s, c));
 	}
-	str[count] = NULL;
-	return (str);
+	return (NULL);
 }
 
-int main()
+/*int main()
 {
-	char a[] = "      Split    this   for   me     !   ";
-	char b = ' ';
+	char a[] = "split  ||this|for|me|||||!|";
+	char b = '|';
 	char	**c;
 	size_t	i;
 	c = ft_split(a, b);
@@ -108,6 +120,6 @@ int main()
 		printf("%s\n", c[i]);
 		i++;
 	}
-	mem_free(count_words(a, b), c);
+//	mem_free(count_words(a, b), c);
 	return 0;
-}
+}*/ 

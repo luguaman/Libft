@@ -1,40 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luguaman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/02 18:48:17 by luguaman          #+#    #+#             */
-/*   Updated: 2023/11/04 17:22:22 by luguaman         ###   ########.fr       */
+/*   Created: 2023/11/03 23:21:40 by luguaman          #+#    #+#             */
+/*   Updated: 2023/11/04 09:43:08 by luguaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+t_list	*ft_lstnew(void *content)
 {
-	char	*ptr;
-	int		i;
+	s_list	list;
+	t_list	new;
 
-	ptr = malloc(ft_strlen(s1) + 1);
-	if (!ptr)
+	new = malloc(sizeof(t_list));
+	if (!new)
 		return (NULL);
-	i = 0;
-	while (s1[i])
-	{
-		ptr[i] = ((char *)s1)[i];
-		i++;
-	}
-	ptr[i] = '\0';
-	return (ptr);
+	new = content;
+	list.content = new;
+	list.next = NULL;
+	return (new);
 }
-
-/*#include <string.h>
-int main()
-{
-	const char a[] = "¿Donde caemos, gente?";
-	printf("F: %s", strdup(a));
-	printf("M: %s", ft_strdup(a));
-	return(0);
-}*/

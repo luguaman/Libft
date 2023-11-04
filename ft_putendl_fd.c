@@ -1,40 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luguaman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/02 18:48:17 by luguaman          #+#    #+#             */
-/*   Updated: 2023/11/04 17:22:22 by luguaman         ###   ########.fr       */
+/*   Created: 2023/10/27 13:27:35 by luguaman          #+#    #+#             */
+/*   Updated: 2023/10/27 13:33:55 by luguaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
-char	*ft_strdup(const char *s1)
+void	ft_putendl_fd(char *s, int fd)
 {
-	char	*ptr;
-	int		i;
-
-	ptr = malloc(ft_strlen(s1) + 1);
-	if (!ptr)
-		return (NULL);
-	i = 0;
-	while (s1[i])
-	{
-		ptr[i] = ((char *)s1)[i];
-		i++;
-	}
-	ptr[i] = '\0';
-	return (ptr);
+	ft_putstr_fd(s, fd);
+	write(fd, "\n", 1);
 }
-
-/*#include <string.h>
-int main()
-{
-	const char a[] = "¿Donde caemos, gente?";
-	printf("F: %s", strdup(a));
-	printf("M: %s", ft_strdup(a));
-	return(0);
-}*/

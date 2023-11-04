@@ -1,40 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luguaman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/02 18:48:17 by luguaman          #+#    #+#             */
-/*   Updated: 2023/11/04 17:22:22 by luguaman         ###   ########.fr       */
+/*   Created: 2023/10/27 13:08:54 by luguaman          #+#    #+#             */
+/*   Updated: 2023/10/27 13:24:09 by luguaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+void	ft_putstr_fd(char *s, int fd)
 {
-	char	*ptr;
-	int		i;
+	size_t	i;
 
-	ptr = malloc(ft_strlen(s1) + 1);
-	if (!ptr)
-		return (NULL);
 	i = 0;
-	while (s1[i])
+	while (s[i])
 	{
-		ptr[i] = ((char *)s1)[i];
+		ft_putchar_fd(s[i], fd);
 		i++;
 	}
-	ptr[i] = '\0';
-	return (ptr);
 }
 
-/*#include <string.h>
-int main()
+/*int main()
 {
-	const char a[] = "¿Donde caemos, gente?";
-	printf("F: %s", strdup(a));
-	printf("M: %s", ft_strdup(a));
-	return(0);
+	char a[] = "Hola buenas tardes";
+	ft_putstr_fd(a, 1);
+	return 0;
 }*/

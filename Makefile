@@ -6,7 +6,7 @@
 #    By: luguaman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/26 13:46:12 by luguaman          #+#    #+#              #
-#    Updated: 2023/10/19 13:25:53 by luguaman         ###   ########.fr        #
+#    Updated: 2023/11/04 18:24:31 by luguaman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,14 @@ SRCS = ft_isalpha.c \
 	ft_substr.c \
 	ft_strjoin.c \
 	ft_strtrim.c \
-	ft_itoa.c
+	ft_split.c \
+	ft_itoa.c \
+	ft_strmapi.c \
+	ft_striteri.c \
+	ft_putchar_fd.c \
+	ft_putstr_fd.c \
+	ft_putendl_fd.c \
+	ft_putnbr_fd.c
 
 OBJS = $(SRCS:.c=.o)
 
