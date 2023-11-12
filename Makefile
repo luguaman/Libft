@@ -6,7 +6,7 @@
 #    By: luguaman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/26 13:46:12 by luguaman          #+#    #+#              #
-#    Updated: 2023/11/04 18:24:31 by luguaman         ###   ########.fr        #
+#    Updated: 2023/11/11 23:53:40 by luguaman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,19 @@ SRCS = ft_isalpha.c \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c
 
+SRBONUS = ft_lstnew_bonus.c \
+		  ft_lstadd_front_bonus.c \
+		  ft_lstsize_bonus.c \
+		  ft_lstlast_bonus.c \
+		  ft_lstadd_back_bonus.c \
+		  ft_lstdelone_bonus.c \
+		  ft_lstclear_bonus.c \
+		  ft_lstiter_bonus.c \
+		  ft_lstmap_bonus.c
+
 OBJS = $(SRCS:.c=.o)
+
+OBONUS = $(SRBONUS:.c=.o)
 
 $(NAME): $(OBJS)
 	@ar crs $(NAME) $(OBJS)
@@ -60,7 +72,11 @@ $(NAME): $(OBJS)
 all: $(NAME)
 
 %.o : %.c
-	@$(CC) $(CFLAGS) -c -o $@ $<  
+	@$(CC) $(CFLAGS) -c -o $@ $<
+
+bonus: $(OBJS) $(OBONUS)
+	@ar crs $(NAME) $(OBJS) $(OBONUS)
+	@echo "\nBONUS done\n"
 
 clean:
 	@$(RM) $(OBJS)
@@ -68,4 +84,4 @@ fclean: clean
 	@rm -f $(NAME)
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus

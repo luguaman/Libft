@@ -6,7 +6,7 @@
 /*   By: luguaman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 13:55:28 by luguaman          #+#    #+#             */
-/*   Updated: 2023/11/12 03:59:26 by luguaman         ###   ########.fr       */
+/*   Updated: 2023/11/12 11:05:32 by luguaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,10 @@ static char	**split_words(char **str, size_t i, char *s, char c)
 		{
 			while (s[i + size] != c && s[i + size] != '\0')
 				size++;
-			ptr = calloc(1, size + 1);
-			if (ptr == NULL)
+			ptr = malloc(size + 1);
+			if (!ptr)
 				return (mem_free(count, str));
+			ft_bzero(ptr, size + 1);
 			str[count] = str_cpy(s, ptr, i, size);
 			count++;
 			i += size;
@@ -101,7 +102,8 @@ char	**ft_split(char const *s, char c)
 			str[0] = 0;
 			return (str);
 		}
-		return (split_words(str, i, (char *)s, c));
+		str = split_words(str, i, (char *)s, c);
+		return (str);
 	}
 	return (NULL);
 }
