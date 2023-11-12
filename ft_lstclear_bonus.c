@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luguaman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/02 16:03:12 by luguaman          #+#    #+#             */
-/*   Updated: 2023/11/04 19:52:02 by luguaman         ###   ########.fr       */
+/*   Created: 2023/11/11 23:30:15 by luguaman          #+#    #+#             */
+/*   Updated: 2023/11/11 23:43:25 by luguaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *str, int c)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	int		i;
-	char	a;
+	t_list	*temp;
 
-	a = c;
-	i = ft_strlen(str);
-	while (i >= 0)
+	if (!del || !lst || !*lst)
+		return ;
+	while (lst && *lst)
 	{
-		if (str[i] == a)
-			return (&((char *)str)[i]);
-		i--;
+		temp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = temp;
 	}
-	return (0);
 }

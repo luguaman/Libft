@@ -6,7 +6,7 @@
 /*   By: luguaman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 13:55:28 by luguaman          #+#    #+#             */
-/*   Updated: 2023/11/04 18:20:53 by luguaman         ###   ########.fr       */
+/*   Updated: 2023/11/12 03:59:26 by luguaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ static char	**split_words(char **str, size_t i, char *s, char c)
 		i++;
 	}
 	str[count] = 0;
-	free(ptr);
 	return (str);
 }
 
@@ -106,20 +105,3 @@ char	**ft_split(char const *s, char c)
 	}
 	return (NULL);
 }
-
-/*int main()
-{
-	char a[] = "split  ||this|for|me|||||!|";
-	char b = '|';
-	char	**c;
-	size_t	i;
-	c = ft_split(a, b);
-	i = 0;
-	while (i < count_words(a, b))
-	{
-		printf("%s\n", c[i]);
-		i++;
-	}
-//	mem_free(count_words(a, b), c);
-	return 0;
-}*/ 

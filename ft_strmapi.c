@@ -6,7 +6,7 @@
 /*   By: luguaman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:10:39 by luguaman          #+#    #+#             */
-/*   Updated: 2023/10/27 15:04:19 by luguaman         ###   ########.fr       */
+/*   Updated: 2023/11/04 19:50:49 by luguaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	str[i] = '\0';
 	return (str);
 }
-
-/*char f(unsigned int n, char c)
-{
-	n = 32;
-	if (c >= 'a' && c <= 'z')
-		c -= n;
-	return (c);
-}
-int main()
-{
-	char a[] = "Hola buenas tardes";
-	printf("%s = %s", a, ft_strmapi(a, *f));
-	return 0;
-}*/

@@ -6,7 +6,7 @@
 /*   By: luguaman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 16:10:44 by luguaman          #+#    #+#             */
-/*   Updated: 2023/10/18 12:52:34 by luguaman         ###   ########.fr       */
+/*   Updated: 2023/11/04 19:50:32 by luguaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,3 @@ size_t	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
-
-/*#include <string.h>
-int main()
-{
-	char a[] = "¿Donde caemos gente?";
-	printf("F: %lu, ", strlen(a));
-	printf("M: %lu\n", ft_strlen(a));
-	return 0;
-}*/

@@ -6,7 +6,7 @@
 /*   By: luguaman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 18:48:17 by luguaman          #+#    #+#             */
-/*   Updated: 2023/11/04 17:22:22 by luguaman         ###   ########.fr       */
+/*   Updated: 2023/11/04 19:48:40 by luguaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,3 @@ char	*ft_strdup(const char *s1)
 	ptr[i] = '\0';
 	return (ptr);
 }
-
-/*#include <string.h>
-int main()
-{
-	const char a[] = "¿Donde caemos, gente?";
-	printf("F: %s", strdup(a));
-	printf("M: %s", ft_strdup(a));
-	return(0);
-}*/

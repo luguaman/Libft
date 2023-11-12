@@ -6,7 +6,7 @@
 /*   By: luguaman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 16:13:34 by luguaman          #+#    #+#             */
-/*   Updated: 2023/10/14 16:03:49 by luguaman         ###   ########.fr       */
+/*   Updated: 2023/11/04 19:51:09 by luguaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,3 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	}
 	return (0);
 }
-
-/*#include <stdio.h>
-#include <string.h>
-int main()
-{
-	const char a[] = "abcd";
-	const char b[] = "abcdTripouilleX";
-	size_t c = 5;
-	printf("F: %d\n", strncmp(a, b, c));
-	printf("M: %d\n", ft_strncmp(a, b, c));
-	return 0;
-}*/

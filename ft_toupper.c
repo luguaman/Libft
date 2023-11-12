@@ -6,7 +6,7 @@
 /*   By: luguaman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 14:47:11 by luguaman          #+#    #+#             */
-/*   Updated: 2023/10/02 14:53:40 by luguaman         ###   ########.fr       */
+/*   Updated: 2023/11/04 19:53:28 by luguaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,3 @@ int	ft_toupper(int c)
 		c -= 32;
 	return (c);
 }
-
-/*#include <stdio.h>
-#include <ctype.h>
-int main()
-{
-	int a = 99;
-	printf("F: %c, %c\n", a, toupper(a));
-	printf("M: %c, %c\n", a, ft_toupper(a));
-	return 0;
-}*/

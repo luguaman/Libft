@@ -6,7 +6,7 @@
 /*   By: luguaman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:12:13 by luguaman          #+#    #+#             */
-/*   Updated: 2023/10/17 13:56:40 by luguaman         ###   ########.fr       */
+/*   Updated: 2023/11/04 19:49:27 by luguaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,20 +50,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ptr[len1] = '\0';
 	return (ptr);
 }
-
-/*int main()
-{
-	char a[] = "lorem ipsum";
-	char b[] = "dolor sit amet";
-	printf("Las dos llenas: %s\n", ft_strjoin(a, b));
-	char c[] = "\0lorem ipsum";
-	char d[] = "dolor sit amet";
-	printf("Primer caracter S1: %s\n", ft_strjoin(c, d));
-	char e[] = "lorem ipsum";
-	char f[] = "\0dolor sit amet";
-	printf("Primer Caracter S2: %s\n", ft_strjoin(e, f));
-	char g[] = "";
-	char h[] = "";
-	printf("Las dos vacias: %s", ft_strjoin(g, h));
-	return 0;	
-}*/

@@ -6,7 +6,7 @@
 /*   By: luguaman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 12:58:58 by luguaman          #+#    #+#             */
-/*   Updated: 2023/10/27 13:04:45 by luguaman         ###   ########.fr       */
+/*   Updated: 2023/11/04 19:41:03 by luguaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,3 @@ void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
 }
-
-/*int main()
-{
-	ft_putchar_fd('q', 0);
-	return (0);
-}*/

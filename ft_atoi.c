@@ -6,7 +6,7 @@
 /*   By: luguaman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 17:27:40 by luguaman          #+#    #+#             */
-/*   Updated: 2023/10/14 13:50:36 by luguaman         ###   ########.fr       */
+/*   Updated: 2023/11/04 19:35:29 by luguaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,3 @@ int	ft_atoi(const char *str)
 	}
 	return (r * s);
 }
-
-/*#include <stdlib.h>
-int main()
-{
-	const char a[] = "945";
-	printf("F: %d\n", atoi(a));
-	printf("M: %d\n", ft_atoi(a));
-	return 0;
-}*/

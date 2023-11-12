@@ -6,7 +6,7 @@
 /*   By: luguaman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 13:08:54 by luguaman          #+#    #+#             */
-/*   Updated: 2023/10/27 13:24:09 by luguaman         ###   ########.fr       */
+/*   Updated: 2023/11/04 19:47:42 by luguaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,3 @@ void	ft_putstr_fd(char *s, int fd)
 		i++;
 	}
 }
-
-/*int main()
-{
-	char a[] = "Hola buenas tardes";
-	ft_putstr_fd(a, 1);
-	return 0;
-}*/

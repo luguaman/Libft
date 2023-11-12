@@ -6,7 +6,7 @@
 /*   By: luguaman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 13:26:47 by luguaman          #+#    #+#             */
-/*   Updated: 2023/10/25 15:05:26 by luguaman         ###   ########.fr       */
+/*   Updated: 2023/11/04 19:38:38 by luguaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,16 +54,3 @@ char	*ft_itoa(int n)
 	}
 	return (str);
 }
-
-/*int main()
-{
-	printf("0, Str: %s\n", ft_itoa(0));
-	printf("9, Str: %s\n", ft_itoa(9));
-	printf("-9, Str: %s\n", ft_itoa(-9));
-	printf("10, Str: %s\n", ft_itoa(10));
-	printf("-10, Str: %s\n", ft_itoa(-10));
-	printf("8124, Str: %s\n", ft_itoa(8124));
-	printf("-8124, Str: %s\n", ft_itoa(-8124));
-	printf("-9874, Str: %s\n", ft_itoa(-9874));
-	return 0;
-}*/

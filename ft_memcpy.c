@@ -6,7 +6,7 @@
 /*   By: luguaman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 14:00:14 by luguaman          #+#    #+#             */
-/*   Updated: 2023/10/16 16:52:47 by luguaman         ###   ########.fr       */
+/*   Updated: 2023/11/04 19:39:48 by luguaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,3 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	}
 	return ((void *)dst);
 }
-
-/*#include <string.h>
-int main()
-{
-	printf("F: %s", memcpy(((void *)0), ((void *)0), 3));
-	printf("M: %s", ft_memcpy(((void *)0), ((void *)0), 3));
-	return 0;
-}*/

@@ -6,7 +6,7 @@
 /*   By: luguaman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 14:08:48 by luguaman          #+#    #+#             */
-/*   Updated: 2023/10/16 17:52:56 by luguaman         ###   ########.fr       */
+/*   Updated: 2023/11/04 19:49:52 by luguaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	ft_strlcpy(dst + dlen, src, dstsize - dlen);
 	return (slen);
 }
-
-/*#include <string.h>
-int main()
-{
-	const char a[20] = "mos gente?";
-	char b[40] = "¿Donde caemos gente?";
-	char c[40] = "¿Donde caemos gente?";
-	size_t d = 1;
-	printf("F: %s, %lu\n", b, strlcat(b, a, d));
-	printf("M: %s, %lu\n", c, ft_strlcat(c, a, d));
-	return 0;
-}*/

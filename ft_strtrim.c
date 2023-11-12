@@ -6,7 +6,7 @@
 /*   By: luguaman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:53:03 by luguaman          #+#    #+#             */
-/*   Updated: 2023/10/17 15:02:07 by luguaman         ###   ########.fr       */
+/*   Updated: 2023/11/04 19:52:36 by luguaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,11 +94,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ptr[i] = '\0';
 	return (&ptr[0]);
 }
-
-/*int main()
-{
-	char a[] = " t  \n\n\nHello Please\n Trim me !\n   \n \n \t\t\n ";
-	char b[] = " \n\t";
-	printf("%s\n", ft_strtrim(a, b));
-	return 0;
-}*/

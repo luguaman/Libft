@@ -6,7 +6,7 @@
 /*   By: luguaman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 17:09:55 by luguaman          #+#    #+#             */
-/*   Updated: 2023/10/16 15:47:06 by luguaman         ###   ########.fr       */
+/*   Updated: 2023/11/04 19:51:26 by luguaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,3 @@ char	*ft_strnstr(const char *hays, const char *needle, size_t len)
 	}
 	return (0);
 }
-
-/*#include <string.h>
-int main()
-{
-	char *big = "abcdef";
- 	char *little = "abc\375xx";
- 	size_t max = 3;
-	printf("F: %s\n", strnstr(big, little, max));
-	printf("M: %s\n", ft_strnstr(big, little, max));
-	return 0;
-}*/

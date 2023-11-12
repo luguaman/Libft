@@ -1,37 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luguaman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 12:42:51 by luguaman          #+#    #+#             */
-/*   Updated: 2023/11/04 19:52:52 by luguaman         ###   ########.fr       */
+/*   Created: 2023/11/11 23:51:15 by luguaman          #+#    #+#             */
+/*   Updated: 2023/11/12 03:57:48 by luguaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	char	*ptr;
-	size_t	i;
+	t_list	*nlst;
+	t_list	*temp;
 
-	if (s == NULL || (char *)s == (void *)0)
-		return (ft_strdup(""));
-	if (start > ft_strlen(s))
-		return (ft_strdup(""));
-	if (len > ft_strlen(s))
-		len = ft_strlen(s);
-	ptr = malloc(len + 1);
-	if (!ptr)
+	if (!lst || !f || !del)
 		return (NULL);
-	i = 0;
-	while (s[start + i] && i < len)
+	nlst = ft_lstnew(f(lst->content));
+	if (!nlst)
+		return (NULL);
+	temp = nlst;
+	lst = lst->next;
+	while (lst)
 	{
-		ptr[i] = s[start + i];
-		i++;
+		nlst->next = ft_lstnew(f(lst->content));
+		if (!nlst->next)
+		{
+			ft_lstclear(&temp, del);
+			return (NULL);
+		}
+		nlst = nlst->next;
+		lst = lst->next;
 	}
-	ptr[i] = '\0';
-	return (ptr);
+	nlst->next = NULL;
+	return (temp);
 }
