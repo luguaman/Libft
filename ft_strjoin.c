@@ -6,7 +6,7 @@
 /*   By: luguaman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:12:13 by luguaman          #+#    #+#             */
-/*   Updated: 2023/11/04 19:49:27 by luguaman         ###   ########.fr       */
+/*   Updated: 2023/11/22 17:33:11 by luguaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	len1;
 	size_t	len2;
 
-	if (*(char *)s1 == '\0' && *(char *)s2 == '\0')
-		return (ft_strdup(""));
+	if (!s1 || !s2)
+		return (NULL);
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
 	ptr = malloc(len1 + len2 + 1);

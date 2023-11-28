@@ -6,17 +6,17 @@
 /*   By: luguaman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:53:03 by luguaman          #+#    #+#             */
-/*   Updated: 2023/11/04 19:52:36 by luguaman         ###   ########.fr       */
+/*   Updated: 2023/11/22 17:35:11 by luguaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	find_start(const char *s, const char *s2)
+static size_t	find_start(const char *s, const char *s2)
 {
-	int	i;
-	int	j;
-	int	c;
+	size_t	i;
+	size_t	j;
+	size_t	c;
 
 	c = 0;
 	i = 0;
@@ -39,11 +39,11 @@ static int	find_start(const char *s, const char *s2)
 	return (c);
 }
 
-static int	find_end(const char *s, const char *s2)
+static size_t	find_end(const char *s, const char *s2)
 {
-	int	i;
-	int	j;
-	int	c;
+	size_t	i;
+	size_t	j;
+	size_t	c;
 
 	c = 0;
 	i = ft_strlen(s) - 1;
@@ -69,23 +69,21 @@ static int	find_end(const char *s, const char *s2)
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*ptr;
-	int		c;
-	int		i;
-	int		j;
+	size_t	c;
+	size_t	i;
+	size_t	j;
 
-	if (find_start(s1, set) == (int)ft_strlen(s1))
-	{
-		ptr = ft_calloc(1, 1);
-		ptr[0] = '\0';
-		return (ptr);
-	}
+	if (!s1 || !set)
+		return (NULL);
+	if (find_start(s1, set) == ft_strlen(s1))
+		return (ft_strdup(""));
 	c = ft_strlen(s1) - find_start(s1, set) - find_end(s1, set);
 	ptr = malloc(c + 1);
 	if (!ptr)
 		return (NULL);
 	j = find_start(s1, set);
 	i = 0;
-	while (j < (int)(ft_strlen(s1) - find_end(s1, set)))
+	while (j < (ft_strlen(s1) - find_end(s1, set)))
 	{
 		ptr[i] = ((char *)s1)[j];
 		j++;

@@ -6,7 +6,7 @@
 /*   By: luguaman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 17:09:55 by luguaman          #+#    #+#             */
-/*   Updated: 2023/11/04 19:51:26 by luguaman         ###   ########.fr       */
+/*   Updated: 2023/11/22 17:25:33 by luguaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strnstr(const char *hays, const char *needle, size_t len)
 
 	if (((char *)needle)[0] == '\0')
 		return ((char *)hays);
+	if (!hays && len == 0)
+		return (0);
 	i = 0;
 	while (hays[i] != '\0' && i < len)
 	{

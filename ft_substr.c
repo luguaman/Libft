@@ -6,11 +6,24 @@
 /*   By: luguaman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 12:42:51 by luguaman          #+#    #+#             */
-/*   Updated: 2023/11/04 19:52:52 by luguaman         ###   ########.fr       */
+/*   Updated: 2023/11/12 11:44:10 by luguaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static size_t	size(char const *s, unsigned int start, size_t len)
+{
+	size_t	size;
+
+	size = 0;
+	while (s[start] && size < len)
+	{
+		size++;
+		start++;
+	}
+	return (size);
+}
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -21,8 +34,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (ft_strdup(""));
 	if (start > ft_strlen(s))
 		return (ft_strdup(""));
-	if (len > ft_strlen(s))
-		len = ft_strlen(s);
+	len = size(s, start, len);
 	ptr = malloc(len + 1);
 	if (!ptr)
 		return (NULL);

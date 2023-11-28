@@ -6,11 +6,18 @@
 /*   By: luguaman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 23:51:15 by luguaman          #+#    #+#             */
-/*   Updated: 2023/11/12 03:57:48 by luguaman         ###   ########.fr       */
+/*   Updated: 2023/11/13 18:35:24 by luguaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*void	*delnode(t_list *node, void (*del)(void *))
+{
+	del(node->content);
+	free(node);
+	return (NULL);
+}*/
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
